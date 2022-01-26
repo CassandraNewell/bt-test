@@ -64,7 +64,7 @@ jobs:
         run: yarn run test --passWithNoTests
 
       - name: Migrate Database
-        run: NODE_ENV=test yarn run test:migrate:latest
+        run: NODE_ENV=test yarn run db:test:migrate
         working-directory: server
       - name: Run server test suite
         working-directory: server
