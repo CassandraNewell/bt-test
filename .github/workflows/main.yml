@@ -45,18 +45,15 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Install dependencies (fns dir)
-        working-directory: functions
-        run: yarn install --frozen-lockfile
 
       - name: Check server style
-        working-directory: functions
+        working-directory: server
         run: yarn run lint:style
       - name: Check client style
         working-directory: client
         run: yarn run lint:style
       - name: Lint server
-        working-directory: functions
+        working-directory: server
         run: yarn run lint
       - name: Lint client
         working-directory: client
@@ -68,7 +65,7 @@ jobs:
 
       - name: Migrate Database
         run: NODE_ENV=test yarn run test:migrate:latest
-        working-directory: functions
+        working-directory: server
       - name: Run server test suite
-        working-directory: functions
+        working-directory: server
         run: yarn run test
