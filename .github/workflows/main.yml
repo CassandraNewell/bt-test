@@ -61,11 +61,11 @@ jobs:
 
       - name: Run client test suite
         working-directory: client
-        run: yarn run test
+        run: yarn run test --passWithNoTests
 
       - name: Migrate Database
         run: NODE_ENV=test yarn run test:migrate:latest
         working-directory: server
       - name: Run server test suite
         working-directory: server
-        run: yarn run test
+        run: yarn run test --passWithNoTests
